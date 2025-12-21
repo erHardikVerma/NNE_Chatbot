@@ -1,0 +1,8 @@
+-> api bna, model load check 
+-> sample text, and check for response 
+-> if response is there, 
+
+
+-> database se data fetch, (python code work karega) 
+-> feed to olamma 
+-> then prompy and see the response 
