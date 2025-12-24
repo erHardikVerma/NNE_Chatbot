@@ -1,7 +1,8 @@
 .idea/
-.venv/
+venv/
 __pycache__/
 *.pyc
 .env
 .env.*
 *.sqlite3
+sql_debug.log
