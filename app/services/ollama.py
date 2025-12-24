@@ -54,8 +54,9 @@ SQL:
         print(f"Generated SQL: {sql_query}") 
 
         # 3. Execute SQL
-        db_data = execute_sql_query(sql_query)
-        
+        test_query = "SELECT clientName FROM client;"
+        db_data = execute_sql_query(test_query)
+        print("DB Data:", db_data)
         # Log DB Result
         with open("sql_debug.log", "a") as f:
             f.write(f"DB Result: {db_data}\n")

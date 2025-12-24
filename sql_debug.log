@@ -36,3 +36,14 @@ DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited
 Q: select clientName column from client table
 SQL: SELECT T1.clientName FROM client AS T1 JOIN bike AS T2 ON T1.client = T2.client ORDER BY T1.client;
 DB Result: SQL Execution Error: 1054 (42S22): Unknown column 'T1.client' in 'on clause'
+
+--- NEW REQUEST ---
+Q: string
+SQL: SELECT `bike`.`EANNumber` FROM `bike` INNER JOIN `plan` ON `bike.`plan = `plan.`id WHERE `bike`.`EANNumber` LIKE '1%';
+DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
+
+--- NEW REQUEST ---
+Q: give me list of my clients
+SQL: SELECT clientName
+FROM client;
+DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
