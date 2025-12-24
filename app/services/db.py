@@ -2,10 +2,10 @@ import mysql.connector
 
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="127.0.0.1",
         user="root",
-        password="password",
-        database="your_db"
+        password="",
+        database="nne"
     )
 
 def fetch_relevant_data(keyword: str) -> str:
@@ -13,10 +13,14 @@ def fetch_relevant_data(keyword: str) -> str:
     cur = conn.cursor()
 
     query = """
-    SELECT name, description
-    FROM products
-    WHERE description LIKE %s
-    LIMIT 5
+            SELECT
+                bike.id   AS id,
+                model.name AS model_name,
+                bike.bbshell AS bbshell,
+                po.poNo     AS po_no
+            FROM nne.bike
+            INNER JOIN po    ON po.id = bike.PO
+            INNER JOIN model ON model.id = po.model
     """
     cur.execute(query, (f"%{keyword}%",))
     rows = cur.fetchall()

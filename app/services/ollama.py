@@ -1,12 +1,17 @@
-from app.services.db import fetch_relevant_data
 import ollama
+from app.services.db import fetch_relevant_data
 
 MODEL = "qwen2.5:7b"
 
-def chat_with_db(prompt: str):
-    db_context = fetch_relevant_data(prompt)
+def chat_with_db(prompt: str) -> str:
+    try:
+        db_context = fetch_relevant_data(prompt)
+    except Exception as e:
+        # DB failed → continue without DB
+        db_context = ""
 
-    full_prompt = f"""
+    if db_context:
+        full_prompt = f"""
 Use the following database information to answer.
 
 Database data:
@@ -15,6 +20,8 @@ Database data:
 User question:
 {prompt}
 """
+    else:
+        full_prompt = prompt
 
     response = ollama.chat(
         model=MODEL,
