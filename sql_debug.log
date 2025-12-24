@@ -1,0 +1,38 @@
+
+--- NEW REQUEST ---
+Q: give me list of my clients
+SQL: SELECT c.clientName
+FROM client AS c
+JOIN logs AS l ON c.id = l.user
+WHERE l.operation = 'add'
+DB Result: Query executed successfully but returned no results.
+
+--- NEW REQUEST ---
+Q: give me list of my clients
+SQL: SELECT DISTINCT T1.clientName 
+FROM client AS T1
+JOIN plan AS T2 ON T1.client = T2.client
+WHERE T2.line = 0; -- Assuming line is set to zero by default
+DB Result: SQL Execution Error: 1054 (42S22): Unknown column 'T1.client' in 'on clause'
+
+--- NEW REQUEST ---
+Q: give me list of my clients
+SQL: SELECT * FROM user;
+DB Result: [(1, 'sadmin1', 's_admin', 'superadmin', '2693DA6B', 'superadmin', 'enabled', 'All'), (2, 'arul', 'arul', '12345', 'Qwerty@123', 'admin', 'enabled', 'User,client,model,lines,PO,Inventory,Battery Pack,Production,Reports,Weighing Machine,Rework Section,Trace Bike,Rejected Bikes,Logs'), (3, 'DECATHLON', 'decath', '0987', 'De@12345', 'client', 'enabled', 'Trace bike'), (4, 'admin', 'admin', '123456', '12345', 'admin', 'enabled', 'All'), (5, 'trinity', 'trinity', 'nnetrin', 'Ta@12345', 'client', 'enabled', 'Trace bike'), (6, 'ALPHAVECTOR', 'alphavector', 'alpha123', 'Alpha@123', 'client', 'enabled', 'Trace bike,Reports'), (7, 'VINSUN', 'vinsun', 'Vinsun123', 'Vinsun@123', 'client', 'enabled', 'Trace bike,Reports'), (8, 'FIREFOX', 'firefox', 'fire123', 'Fire@123', 'client', 'enabled', 'Trace bike,Reports'), (9, 'HERO', 'herobihar', 'herobihar123', 'Hero@123', 'client', 'enabled', 'Trace bike,Reports'), (10, 'D.M. INTERNATIONAL', 'dmint', 'dm123', 'Dmint@123', 'client', 'enabled', 'Trace bike,Reports'), (11, 'gurpreet', 'gurpreet', 'gurpreet', 'Gs@12345', 'IT', 'enabled', 'client,model,PO,Inventory,Battery Pack,Production,Reports,Weighing Machine,Rework Section,Trace Bike,Rejected Bikes'), (12, 'gurminder', 'gurminder', 'gurminder', 'Gs@12345', 'lineManager', 'enabled', 'model,PO,Inventory,Reports,Rework Section,Trace Bike,Rejected Bikes'), (13, 'Airline-back', 'jarnail', '2233', 'Air@12345', 'lineManager', 'enabled', 'Battery Pack,Production,Weighing Machine,Trace Bike,Rejected Bikes'), (14, 'Reliance', 'reliance', 'DR000006', 'Re@12345', 'client', 'enabled', 'Trace bike'), (15, 'robin', 'robin', 'robin', 'Nne@c186', 'productionManager', 'enabled', 'client,model,PO,Inventory,Battery Pack,Production,Reports,Weighing Machine'), (16, 'vijayluxmi', 'vijayluxmi', 'vijayluxmi', 'Vij@1234', 'admin', 'enabled', 'client,model,PO,Inventory,Battery Pack,Production,Reports,Rework Section,Trace Bike'), (17, 'Manish', 'manish', '8241', 'Mk@12345', 'admin', 'enabled', 'model,lines,PO,Inventory,Battery Pack,Production,Reports,Rework Section,Trace Bike,Rejected Bikes'), (18, 'INKDOP TECHNOLOGIES', 'SAHIL', 'INKDOP', 'Sa@12345', 'client', 'enabled', 'Trace bike'), (19, 'La Sovereign', 'sovereign', 'soverign', 'So@12345', 'client', 'enabled', 'Trace bike'), (20, 'Life Long', 'lifelong', 'Lifelong', 'Li@12345', 'client', 'enabled', 'Trace bike'), (21, 's k bikes', 'skbikes', 'skbikes', 'Robin@321', 'client', 'enabled', 'Trace bike'), (22, 'Dinesh', 'dinesh', '7787', 'Nne@54321', 'admin', 'enabled', 'User,client,model,lines,PO,Inventory,Battery Pack,Production,Reports,Weighing Machine,Rework Section,Trace Bike,Rejected Bikes,Logs'), (23, 'Arminder', 'arminder', '1260', 'Nne@2023', 'admin', 'enabled', 'PO,Inventory,Production,Reports,Trace Bike,Rejected Bikes'), (24, 'SKD-86', 'satnam', '1071', 'Sa@12345', 'lineManager', 'enabled', 'Battery Pack,Production,Weighing Machine,Trace Bike,Rejected Bikes'), (25, 'SKD-90', 'suraj', '0573', 'Su@12345', 'lineManager', 'enabled', 'Production,Weighing Machine,Trace Bike'), (26, 'Dispatch', 'dispatch', '0578', 'Da@12345', 'dispatch', 'enabled', 'Inventory,Production,Reports'), (27, 'Rahul', 'Rahul', '1055', 'Lahul@00123', 'productionManager', 'enabled', 'model,PO,Production,Trace Bike'), (28, 'SUN BABY', 'SUNBABY', '1005', 'Su@12345', 'client', 'enabled', 'PO,Trace Bike'), (29, 'suraj', 'suraj123', '1115', 'Sa@12345', 'lineManager', 'disabled', 'model,PO,Trace Bike'), (30, 'Airline-Baldev', 'baldev', '1222', 'Ba@12345', 'lineManager', 'enabled', 'Battery Pack,Production,Weighing Machine,Trace Bike,Rejected Bikes'), (31, 'Hero Cycle', 'hero', '401285', 'Sgfgfgf$33@', 'client', 'enabled', 'Trace bike'), (32, 'AirLine', 'airline', '5500', 'Nne@12345', 'line', 'enabled', 'S-air line-Ludhiana'), (33, 'Arshdeep', 'arshdeep', '2005', 'Nne@12345', 'dispatch', 'enabled', 'Trace Bike'), (34, 'nneclient', 'nneclient', '1234', 'Nne@1234', 'client', 'enabled', 'Trace bike'), (35, 'nne', 'NAVYUG', '1234G', 'jHHGFHJ7676@', 'client', 'enabled', 'Trace bike'), (36, 'Nineways', 'nineways', 'nine001', 'Nenjwdh@134', 'client', 'enabled', 'Trace bike'), (37, 'JAGUAR ', 'JAGUAR', 'NNE1234', 'Ja@12345', 'client', 'enabled', 'Trace bike'), (38, 'kaspar', 'kaspar', '22556', 'VHHghh@434345', 'client', 'enabled', 'Trace Bike'), (39, 'SUPER SPORZA', 'SUPER', '56656', 'S@12345ds', 'client', 'enabled', 'Trace Bike'), (40, 'suspension fork', 'sandeep', '56565', 'Sa@12345', 'lineManager', 'enabled', 'client,model,PO,Production,Trace Bike'), (41, 'Happy', 'Happy', '545454', 'Happy@12345', 'lineManager', 'enabled', 'Trace Bike'), (42, 'TANDEM BIKES', 'tandem', 'NNETANDEM', 'Ta@123456', 'client', 'enabled', 'client'), (43, 'Hardik', '', '', '', '', '', '')]
+
+--- NEW REQUEST ---
+Q: give me list of my clients
+SQL: SELECT DISTINCT c.clientName
+FROM client AS c
+LEFT JOIN logs l ON c.clientName = l.user AND '2021-11-30' <= l.created_at AND '2021-11-30' >= l.created_at - INTERVAL 1 DAY;
+DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
+
+--- NEW REQUEST ---
+Q: select clientName columf from client table
+SQL: SELECT clientName FROM client;
+DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
+
+--- NEW REQUEST ---
+Q: select clientName column from client table
+SQL: SELECT T1.clientName FROM client AS T1 JOIN bike AS T2 ON T1.client = T2.client ORDER BY T1.client;
+DB Result: SQL Execution Error: 1054 (42S22): Unknown column 'T1.client' in 'on clause'
