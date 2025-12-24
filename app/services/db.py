@@ -8,23 +8,7 @@ def get_db_connection():
         database="nne"
     )
 
-<<<<<<< HEAD
-def fetch_relevant_data(keyword: str) -> str:
-    conn = get_db_connection()
-    cur = conn.cursor()
-
-    query = """
-            SELECT
-                bike.id   AS id,
-                model.name AS model_name,
-                bike.bbshell AS bbshell,
-                po.poNo     AS po_no
-            FROM nne.bike
-            INNER JOIN po    ON po.id = bike.PO
-            INNER JOIN model ON model.id = po.model
-=======
 def get_database_schema() -> str:
->>>>>>> e93679e (v2: Switched to lightweight Qwen-0.5b with Few-Shot prompting and dynamic schema extraction)
     """
     Dynamically retrieves the schema of the 'nne' database.
     Returns a string formatted as:

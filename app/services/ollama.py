@@ -1,24 +1,8 @@
 import ollama
-<<<<<<< HEAD
-from app.services.db import fetch_relevant_data
-=======
 from app.services.db import get_database_schema, execute_sql_query
->>>>>>> e93679e (v2: Switched to lightweight Qwen-0.5b with Few-Shot prompting and dynamic schema extraction)
 
 MODEL = "qwen2.5:0.5b"
 
-<<<<<<< HEAD
-def chat_with_db(prompt: str) -> str:
-    try:
-        db_context = fetch_relevant_data(prompt)
-    except Exception as e:
-        # DB failed → continue without DB
-        db_context = ""
-
-    if db_context:
-        full_prompt = f"""
-Use the following database information to answer.
-=======
 def chat_with_db(user_question: str) -> str:
     # 1. Get database schema
     schema = get_database_schema()
@@ -30,7 +14,6 @@ def chat_with_db(user_question: str) -> str:
 You are a MySQL Query Generator.
 Schema:
 {schema}
->>>>>>> e93679e (v2: Switched to lightweight Qwen-0.5b with Few-Shot prompting and dynamic schema extraction)
 
 Examples:
 Q: List all clients
@@ -49,8 +32,6 @@ Task:
 Q: {user_question}
 SQL: 
 """
-    else:
-        full_prompt = prompt
 
     try:
         # Log prompt
