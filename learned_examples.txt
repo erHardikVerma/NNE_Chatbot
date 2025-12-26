@@ -1,0 +1,9 @@
+
+Q: give me list of clients
+SQL: SELECT clientName FROM client;
+
+Q: give me list of all clients
+SQL: SELECT clientName FROM client;
+
+Q: give me list of users
+SQL: SELECT user.name FROM user;

@@ -47,3 +47,70 @@ Q: give me list of my clients
 SQL: SELECT clientName
 FROM client;
 DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
+
+--- NEW REQUEST ---
+Q: How many clients are there?
+SQL: SELECT COUNT(id) FROM user;
+DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
+
+--- NEW REQUEST ---
+Q: select clientName column from client
+SQL: SELECT clientName FROM client;
+DB Result: [('RELIANCE BRANDS LIMITED',), ('Inkodop Technologies Private Limited',), ('VINSUN ENTERPRISES',), ('ALPHAVECTOR (INDIA) PVT LTD',), ('DECATHLON SPORTS INDIA PVT. LTD.',), ('TRINITY CYCLES INDIA PVT LTD',), ('GRAY JAY ENTERPRISE LLP',), ('LIFELONG ONLINE RETAIL PRIVATE LIMITED',), ('SUN BABY JACEK GABRUS (ADV)',), ('HERO CYCLE PVT LTD',), ('MCLEOD ACCESSORIES',), ('NNE ',), ('NINEWAYS THE CYCLE FACTORY PVT. LTD',), ('S.C JUGUAR IMP SRL',), ('KASPAR AGNIESZKA GORCZYCA',), ('SUPER SPORZA B.V',), ('TANDEM GROUP PLC',)]
+
+--- NEW REQUEST ---
+Q: give me list of clients
+SQL: SELECT * FROM client;
+DB Result: [(7, 14, 'RELIANCE BRANDS LIMITED', '03AADCR7395F1ZA', '88082-22200', 'Mumbai', '10318372', 'REL', 20, 12), (8, 18, 'Inkodop Technologies Private Limited', '27AAECI3441AIZ3', '86278-21300', 'At post Jambe, Taluka mulshi,169/2,Sangawade Road,Pune,Maharastra,411033', 'EM/RM/NNE/23/0004', 'EM0001', 20, 12), (9, 7, 'VINSUN ENTERPRISES', '03AABFV8423F1ZF', '8282828283', 'C-186', 'VIN1009', 'NNE5001', 18, 12), (10, 6, 'ALPHAVECTOR (INDIA) PVT LTD', '24AADCA2897D2ZT', '', '7, 3rd FLOOR, SWASTIK SUPER MARKET ASHRAM ROAD, AHMEDABAD, Gujarat, 380009', 'AVINNED', '1000081', 18, 8), (11, 3, 'DECATHLON SPORTS INDIA PVT. LTD.', '27AAACL9861H1Z6', '8608050567', 'PAP-68, Khandala,MID Phase-I Industrial, Area,Dhangarwadi, Khandala 412802', '249655', '10101', 18, 12), (12, 5, 'TRINITY CYCLES INDIA PVT LTD', '27AAFCT8355B1ZA', '9779511585', 'PLOT NO PAP-68, PHASE-1, MIDC KHANDALA', 'TCINNED', 'DR00045', 18, 12), (13, 10, 'GRAY JAY ENTERPRISE LLP', '03AAICN1128K1ZN', '9971612000', 'Ludhiana Punjab', 'GJ001', 'GJ123', 18, 12), (14, 20, 'LIFELONG ONLINE RETAIL PRIVATE LIMITED', '27AACCL9605M1Z3', '8146603030', 'site no.4,Bays no.2,sec32,Gurgaon East,Gurgaon 122001', 'Lifelong1002', 'Lifelong123', 22, 12), (15, 28, 'SUN BABY JACEK GABRUS (ADV)', '  ', '', 'POLAND ', 'SUN001', 'DR00041', 22, 12), (16, 31, 'HERO CYCLE PVT LTD', '03AAACH4073P1ZH', '01615026969', 'G.T.ROAD HER LUDHIANA 141003O NAGAR.LUDHIANA 141003 PUNJAB', '401285', 'HERO123', 22, 12), (17, 34, 'MCLEOD ACCESSORIES', '..', '', ' AUSTRALIA', 'MCLEOD001', 'MCLEOD001', 20, 12), (18, 35, 'NNE ', '', '', 'd186', 'nne001', 'nne001', 20, 12), (19, 36, 'NINEWAYS THE CYCLE FACTORY PVT. LTD', '03AAICN8635M1Z1', '9922617991', 'PLOT NO 8 B-XXITI, 2818/0, AMBALA BYPASS', 'NINE001', 'NINE001', 20, 12), (20, 37, 'S.C JUGUAR IMP SRL', 'RO 6769845', '', 'ROMANIAN', 'SCJ001', 'SCJ001', 20, 12), (21, 38, 'KASPAR AGNIESZKA GORCZYCA', '', '', 'POLAND', 'KAS001', 'KAS001', 20, 12), (22, 39, 'SUPER SPORZA B.V', '03HJHHJHHJHJ', '9876543210', 'NETHERLANDS', 'SUP001', 'SUP001', 20, 12), (23, 42, 'TANDEM GROUP PLC', '..', '7587552022', '35 TAMESIDE DRIVE CASTLE BROMWICH BIRMINGHAM B35 7AG', 'TEN001', 'TEN000', 20, 15)]
+
+[NEW] Q: give me list of all clients
+SQL: SELECT DISTINCT clientName FROM client;
+
+[NEW] Q: How many clients are there?
+SQL: SELECT COUNT(client.name) FROM user AS u JOIN model AS m ON u.model = m.name WHERE m.name IN (SELECT EANNumber FROM rejected_bike WHERE client = u.id)
+
+[NEW] Q: give me list of all clients
+SQL: SELECT clientName FROM client;
+
+[NEW] Q: give me list of all clients
+SQL: SELECT clientName FROM client;
+
+[NEW] Q: give me list of bike dispatched on 22nd Feb, 2024
+SQL: SELECT T3.name FROM line AS T1 INNER JOIN logs AS T2 ON T1.id = T2.plan INNER JOIN model AS T3 ON T1.model = T3.name WHERE T2.timestamp LIKE '2024-02-22%' LIMIT 5;
+
+[RETRY] Q: give me list of bike dispatched on 22nd Feb, 2024
+SQL: To answer the question "What are the bikes dispatched on 22nd February, 2024?", you can use the following query:
+
+
+SELECT T3.name
+FROM bike AS T1 INNER JOIN line AS T2 ON T1.id = T2.plan INNER JOIN model AS T3 ON T1.model = T3.name 
+WHERE STRFTIME('%d', T2.timestamp) = '02' AND STRFTIME('%d', T2.timestamp) > '01';
+
+
+### Explanation:
+- **STRFTIME('%d', T2.timestamp)**: Converts the timestamp of February 22, 2024 into a numeric value (day). It extracts the day from the given date.
+- **STRFTIME('%d', T2.timestamp) > '01'**: Checks if the extracted day is greater than January 1st.
+- **STRFTIME('%d', T2.timestamp)**: Converts this numeric value back to a timestamp format, effectively converting February 22, 2024 into a date in `YYYY-MM-DD` format.
+
+This query will return all bikes that were dispatched on or before the 22nd of February, 2024.
+
+[RETRY] Q: give me list of bike dispatched on 22nd Feb, 2024
+SQL: To answer the question "What are the bikes dispatched on 22nd February, 2024?", you can use the following query:
+
+
+SELECT T3.name
+FROM bike AS T1 
+INNER JOIN line AS T2 ON T1.id = T2.plan 
+INNER JOIN model AS T3 ON T1.model = T3.name 
+WHERE STRFTIME('%d', T2.timestamp) = '02' AND STRFTIME('%d', T2.timestamp) > '01'
+
+
+### Explanation:
+- **STRFTIME('%d', T2.timestamp)**: Converts the timestamp of February 22, 2024 into a numeric value (day).
+  - It extracts the day from the given date.
+  - `STRFTIME('%d', T2.timestamp)` converts this numeric value back to a timestamp format.
+
+This query will return all bikes that were dispatched on or before the 22nd of February, 2024.
+
+[NEW] Q: give me list of users
+SQL: SELECT user.name FROM user;

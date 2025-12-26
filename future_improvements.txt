@@ -1,0 +1,25 @@
+# Future Improvements & Learning Roadmap
+
+This document outlines the planned phases for evolving the NNE Chatbot from a simple Text-to-SQL tool into a sophisticated learning agent.
+
+## Phase 1: In-Context Learning (Current)
+- **Status**: Implemented
+- **Mechanism**: "Few-Shot" prompting using a local `learned_examples.txt` file.
+- **Benefit**: Instant improvement based on user feedback (Yes/No). The model sees confirmed correct SQL as context for new queries.
+
+## Phase 2: RAG for Examples (Proposed)
+- **Goal**: Handle hundreds of learned examples without slowing down the model.
+- **Mechanism**: Use a Vector Database (like ChromaDB or FAISS) to store `learned_examples.txt`.
+- **Action**: When a user asks a question, retrieve ONLY the top 3-5 most similar successful queries to include in the prompt.
+- **Benefit**: Keeps prompts small and efficient while maintaining a massive "memory" of correct logic.
+
+## Phase 3: Fine-Tuning (Proposed)
+- **Goal**: Bake the database knowledge directly into the model's "brain."
+- **Mechanism**: Use the collected dataset from Phase 1 & 2 to fine-tune the weights of the LLM (e.g., Qwen 0.5B or 7B).
+- **Tooling**: Unsloth, HuggingFace TRL, or Ollama Modelfiles.
+- **Benefit**: No need for examples in the prompt; the model becomes a specialized "NNE Database Expert."
+
+## Phase 4: Metadata Tagging
+- **Goal**: Organize the learning file by category.
+- **Mechanism**: Add tags like `#client`, `#parts`, `#search` to the `learned_examples.txt`.
+- **Benefit**: Allows for better filtering and more relevant example selection.
